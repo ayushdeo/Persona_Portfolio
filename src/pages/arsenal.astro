@@ -1,0 +1,93 @@
+---
+import PersonaLayout from '../components/layout/PersonaLayout.astro';
+import PageTransition from '../components/motion/PageTransition';
+import ProjectCard from '../components/ui/ProjectCard';
+import SlashDivider from '../components/ui/SlashDivider.astro';
+
+const projects = [
+  {
+    title: "AGENTIC AI SYSTEMS",
+    description: "Design and deployment of multi-agent AI systems for decisioning, retrieval, orchestration, and reporting.",
+    tags: ["PYTHON", "HUGGINGFACE", "TINYLLAMA", "RAG", "AZURE OPENAI"],
+    impact: [
+        "Multi-agent fraud analysis pipelines",
+        "Agent-based reporting systems for banks",
+        "NLP & Computer Vision systems"
+    ]
+  },
+  {
+    title: "DATA, CLOUD & MLOPS",
+    description: "Scalable data architecture, graph analytics, and production-grade MLOps pipelines powering decision systems.",
+    tags: ["AZURE DATABRICKS", "COSMOS DB", "GRAPH ANALYTICS", "MLOPS"],
+    impact: [
+        "Azure Databricks → Cosmos DB pipelines",
+        "Graph analytics & Fraud detection",
+        "Telemetry and evaluation pipelines"
+    ]
+  },
+  {
+    title: "DESIGN & CREATIVE",
+    description: "5+ years of hands-on design experience across digital products, brand systems, and media. Bridging aesthetics and function.",
+    tags: ["UI/UX", "BRANDING", "MOTION", "VISUAL SYSTEMS"],
+    impact: [
+        "Digital product design & UI systems",
+        "Brand identity & visual storytelling",
+        "Marketing assets & media production"
+    ]
+  },
+  {
+    title: "PRODUCT & STRATEGY",
+    description: "Analytics-driven product strategy, feasibility modeling, and launch optimization workflows.",
+    tags: ["STRATEGY", "PRICING MODELS", "LAUNCH SYSTEMS", "ANALYTICS"],
+    impact: [
+        "Feasibility and pricing models",
+        "Product workflows & launch systems",
+        "Analytics-driven optimization"
+    ]
+  }
+];
+---
+
+<PersonaLayout title="ARSENAL" mode="blue">
+    <PageTransition client:load>
+        <div class="max-w-6xl mx-auto pt-10 pb-10 min-h-screen">
+            
+            <div class="text-center mb-16 relative">
+                 <h2 class="text-6xl md:text-8xl font-display text-white transform -skew-x-12 inline-block border-b-8 border-persona-accent pb-4">
+                    ARSENAL
+                 </h2>
+                 <p class="absolute top-0 right-1/4 text-persona-yellow text-sm font-ui font-black tracking-widest animate-pulse hidden md:block">
+                     SYSTEM STATUS: NORMAL
+                 </p>
+            </div>
+
+            <SlashDivider height="h-1" bg="bg-gray-800" />
+            
+            <!-- Sticky Scroll Deck (Full Width) -->
+            <div class="mt-10 relative -mx-8">
+                {projects.map((p, i) => (
+                    // Sticky container - Full width black background to cover previous cards completely
+                    <div class="sticky top-0 h-screen flex items-center justify-center w-full bg-persona-black overflow-visible" style={`z-index: ${i + 1};`}>
+                         <div class="w-full max-w-6xl px-8 py-20 overflow-visible"> {/* Added padding and overflow-visible */}
+                            <ProjectCard
+                                client:load
+                                index={i}
+                                title={p.title}
+                                description={p.description}
+                                tags={p.tags}
+                                impact={p.impact}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+            
+            <div class="text-center mt-10 pb-10">
+                <p class="text-gray-500 font-display text-xl uppercase tracking-widest">
+                    /// END OF LIST ///
+                </p>
+            </div>
+            
+        </div>
+    </PageTransition>
+</PersonaLayout>

@@ -1,0 +1,32 @@
+---
+---
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-persona-black">
+    
+    <!-- Real Photo with Persona Treatment -->
+    <!-- 1. Grayscale & High Contrast Base -->
+    <div class="absolute inset-0 bg-[url('/assets/usc_campus.png')] bg-cover bg-center 
+                filter grayscale contrast-[1.5] brightness-75 opacity-60
+                transform scale-105">
+    </div>
+
+    <!-- 2. Color Map (Duotone Effect) -->
+    <!-- Maps darks to black/red and lights to the accent color -->
+    <div class="absolute inset-0 bg-persona-black mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-persona-accent mix-blend-color-dodge opacity-80"></div>
+
+    <!-- 3. Halftone Texture -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle,theme('colors.persona.black')_2px,transparent_2.5px)] bg-[length:8px_8px] opacity-40 mix-blend-overlay"></div>
+
+    <!-- 4. Angular Vignette / Mask -->
+    <div class="absolute inset-0 bg-persona-black" 
+         style="clip-path: polygon(0 0, 100% 0, 100% 10%, 15% 15%, 0 50%, 0 100%, 100% 100%, 100% 85%, 20% 80%, 0 50%); opacity: 0.8">
+    </div>
+    
+    <!-- 5. Floating Geometry -->
+     <div class="absolute top-10 right-10 w-64 h-64 border-[20px] border-persona-accent opacity-20 transform rotate-45 border-dashed"></div>
+
+    <!-- 6. Noise -->
+     <div class="absolute inset-0 opacity-10 mix-blend-overlay
+         bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC41IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')]">
+     </div>
+</div>

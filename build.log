@@ -1,0 +1,19 @@
+
+> persona@0.0.1 build
+> astro build
+
+[2m13:23:44[22m [34m[content][39m Syncing content
+[2m13:23:44[22m [34m[content][39m Synced content
+[2m13:23:44[22m [34m[types][39m Generated [2m42ms[22m
+[2m13:23:44[22m [34m[build][39m output: [34m"static"[39m
+[2m13:23:44[22m [34m[build][39m mode: [34m"static"[39m
+[2m13:23:44[22m [34m[build][39m directory: [34mD:\Ms CS\persona\dist\[39m
+[2m13:23:44[22m [34m[build][39m Collecting build info...
+[2m13:23:44[22m [34m[build][39m [32m✓ Completed in 123ms.[39m
+[2m13:23:44[22m [34m[build][39m Building static entrypoints...
+[31m[1m13:23:45[22m [ERROR] [vite][39m [31m✗[39m Build failed in 800ms
+Could not resolve "../styles/globals.css" from "src/components/layout/PersonaLayout.astro"
+file: D:/Ms CS/persona/src/components/layout/PersonaLayout.astro
+  [1mStack trace:[22m
+[2m    at getRollupError (file:///D:/Ms%20CS/persona/node_modules/rollup/dist/es/shared/parseAst.js:400:41)
+    at ModuleLoader.handleInvalidResolvedId (file:///D:/Ms%20CS/persona/node_modules/rollup/dist/es/shared/node-entry.js:21666:24)[22m

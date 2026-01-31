@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+    @apply bg-persona-black text-persona-white font-ui;
+    --theme-accent: #e60012;
+    /* Default Red */
+}
+
+/* Color Modes */
+.theme-red {
+    --theme-accent: #e60012;
+}
+
+.theme-blue {
+    --theme-accent: #0095f6;
+}
+
+/* P3 Blue */
+.theme-yellow {
+    --theme-accent: #f5c400;
+}
+
+/* P4 Yellow */
+.theme-purple {
+    --theme-accent: #9d50bb;
+}
+
+/* P1 Purple */
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply font-display uppercase;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e60012;
+}

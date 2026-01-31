@@ -1,0 +1,84 @@
+---
+const links = [
+    {
+        name: "MISSION START",
+        href: "/",
+        color: "text-persona-red",
+        hover: "hover:text-persona-red",
+    },
+    {
+        name: "STATS",
+        href: "/stats",
+        color: "text-persona-purple",
+        hover: "hover:text-persona-purple",
+    },
+    {
+        name: "ARSENAL",
+        href: "/arsenal",
+        color: "text-persona-blue",
+        hover: "hover:text-persona-blue",
+    },
+    {
+        name: "CONFIDANTS",
+        href: "/confidants",
+        color: "text-persona-yellow",
+        hover: "hover:text-persona-yellow",
+    },
+    {
+        name: "SAFE ROOM",
+        href: "/safe-room",
+        color: "text-persona-red",
+        hover: "hover:text-persona-red",
+    },
+];
+const currentPath = Astro.url.pathname;
+interface Props {
+    mode?: string;
+}
+---
+
+<nav
+    class="relative h-full w-24 md:w-64 bg-persona-black border-r-4 border-persona-white z-20 hidden md:flex flex-col justify-center transform -skew-x-3 origin-top-left ml-[-1rem]"
+>
+    <!-- Decorative Stripes -->
+    <div
+        class="absolute inset-y-0 right-[-10px] w-2 bg-persona-accent h-full transition-colors duration-500"
+    >
+    </div>
+
+    <ul
+        class="flex flex-col space-y-6 pr-6 text-right font-display text-2xl tracking-wide mt-20"
+    >
+        {
+            links.map((link) => {
+                const isActive =
+                    currentPath === link.href ||
+                    (link.href !== "/" && currentPath.startsWith(link.href));
+                return (
+                    <li>
+                        <a
+                            href={link.href}
+                            class:list={[
+                                "block transition-all duration-300 transform hover:scale-110 hover:skew-x-12 hover:-translate-x-2",
+                                link.hover, // Target-aware hover color
+                                isActive
+                                    ? `${link.color} scale-110 -translate-x-4 skew-x-3 drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)]`
+                                    : "text-gray-500",
+                            ]}
+                        >
+                            {link.name}
+                        </a>
+                    </li>
+                );
+            })
+        }
+    </ul>
+
+    <div class="absolute bottom-10 left-10 opacity-50 skew-x-3">
+        <p
+            class="font-ui text-xs text-persona-red rotate-90 origin-bottom-left"
+        >
+            PHANTOM THIEVES
+        </p>
+    </div>
+</nav>

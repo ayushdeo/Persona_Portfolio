@@ -1,0 +1,122 @@
+---
+import PersonaLayout from "../components/layout/PersonaLayout.astro";
+import PageTransition from "../components/motion/PageTransition";
+import StatRadar from "../components/ui/StatRadar";
+import StatCard from "../components/ui/StatCard";
+import SlashDivider from "../components/ui/SlashDivider.astro";
+
+const skills = [
+    {
+        category: "TACTICAL ANALYSIS",
+        skill: "AGENTIC AI SYSTEMS",
+        level: 5,
+        description:
+            "Design and deployment of multi-agent AI systems for decisioning, retrieval, orchestration, and reporting. Hands-on with Copilot Studio, AutoGen, TinyLLaMA, RAG pipelines, policy guardrails, and telemetry.",
+    },
+    {
+        category: "EXECUTION",
+        skill: "ENGINEERING",
+        level: 5,
+        description:
+            "Full-stack and cloud-native system development. APIs, data pipelines, automation, and scalable backend services.",
+    },
+    {
+        category: "AESTHETIC DAMAGE",
+        skill: "DESIGN",
+        level: 5,
+        description:
+            "UI/UX design, motion systems, branding, and visual storytelling. 5+ years of hands-on design experience across digital products, marketing assets, and media.",
+    },
+    {
+        category: "BATTLE STRATEGY",
+        skill: "STRATEGY",
+        level: 4,
+        description:
+            "Product strategy, feasibility modeling, pricing analysis, launch optimization, and experimentation-driven decision making.",
+    },
+    {
+        category: "CRITICAL THINK",
+        skill: "RESEARCH",
+        level: 4,
+        description:
+            "Peer-reviewed AI and data science research. Work spanning NLP, computer vision, bias analysis, optimization systems, and applied analytics.",
+    },
+    {
+        category: "SPECIALIZATION",
+        skill: "NLP & VISION",
+        level: 5,
+        description:
+            "Sentiment Analysis & Bias Eval, Deepfake Detection, Caption Generation, Multi-agent Retrieval Pipelines.",
+    },
+];
+---
+
+<PersonaLayout title="YOUR STATS" mode="purple">
+    <PageTransition client:load>
+        <div
+            class="flex flex-col lg:flex-row gap-12 items-start justify-center min-h-[80vh] pt-10"
+        >
+            <!-- Left Column: Radar & Visuals -->
+            <div class="w-full lg:w-1/3 flex flex-col items-center">
+                <StatRadar client:visible />
+
+                <div class="-mt-10 w-full relative z-10 -ml-[15px]">
+                    <div
+                        class="bg-white text-black p-4 transform skew-x-[-6deg] shadow-lg border-2 border-persona-purple"
+                    >
+                        <h3 class="font-display text-2xl mb-2">
+                            UNKNOWN VARIANTS
+                        </h3>
+                        <p class="font-ui text-sm leading-relaxed">
+                            Possesses a rare combination of engineering depth,
+                            agentic AI expertise, and aesthetic sensitivity.
+                            Demonstrates high effectiveness in ambiguous,
+                            high-pressure environments.
+                            <br /><strong class="text-persona-red"
+                                >Warning: Performs best in chaotic systems.</strong
+                            >
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Skill Cards -->
+            <div class="w-full lg:w-1/2">
+                <div class="mb-6 flex items-center gap-4">
+                    <h2
+                        class="font-display text-4xl text-white bg-persona-black border-l-8 border-persona-purple pl-4"
+                    >
+                        CONFIDANT ABILITIES
+                    </h2>
+                    <div class="h-1 flex-1 bg-gray-800"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {
+                        skills.map((s, i) => (
+                            <StatCard
+                                client:visible
+                                category={s.category}
+                                skill={s.skill}
+                                level={s.level}
+                                description={s.description}
+                                delay={i * 0.1}
+                            />
+                        ))
+                    }
+                </div>
+
+                <SlashDivider height="h-2" bg="bg-persona-red" />
+
+                <div class="mt-8 text-right">
+                    <a
+                        href="/arsenal"
+                        class="inline-block font-display text-xl text-gray-500 hover:text-persona-yellow transition-colors"
+                    >
+                        VIEW ARSENAL →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </PageTransition>
+</PersonaLayout>

@@ -1,0 +1,171 @@
+---
+import PersonaLayout from "../components/layout/PersonaLayout.astro";
+import PageTransition from "../components/motion/PageTransition";
+import PersonaButton from "../components/ui/PersonaButton";
+import MaskReveal from "../components/ui/MaskReveal";
+import USCOverlay from "../components/ui/USCOverlay.astro";
+---
+
+<PersonaLayout title="SAFE ROOM" mode="red">
+    <USCOverlay />
+    <PageTransition client:load>
+        <div
+            class="flex flex-col items-center justify-start pt-24 pb-[50vh] px-16 relative"
+        >
+            <div
+                class="max-w-4xl w-full bg-persona-black/90 border-2 border-persona-accent p-10 md:p-20 relative backdrop-blur-sm shadow-[10px_10px_0px_theme('colors.persona.accent')] transform -skew-x-2"
+            >
+                <MaskReveal client:visible>
+                    <h2
+                        class="text-5xl font-display text-white mb-8 border-b-2 border-gray-700 pb-4"
+                    >
+                        MISSION BRIEFING
+                    </h2>
+                </MaskReveal>
+
+                <div
+                    class="space-y-6 text-lg text-gray-300 font-ui leading-relaxed"
+                >
+                    <MaskReveal client:visible delay={0.2}>
+                        <p>
+                            I’m a product-focused engineer obsessed with <strong
+                                class="text-white">style</strong
+                            > and <strong class="text-white">function</strong>.
+                            I build AI-powered systems that scale, adapt, and
+                            empower creativity.
+                        </p>
+                    </MaskReveal>
+
+                    <MaskReveal client:visible delay={0.3}>
+                        <p>
+                            My philosophy is simple: <em
+                                class="text-persona-yellow"
+                                >If it's not stylish, it's not finished.</em
+                            >
+                        </p>
+                    </MaskReveal>
+                </div>
+
+                <!-- Education Record -->
+                <div
+                    class="mt-12 w-full border-t-2 border-dashed border-gray-700 pt-8"
+                >
+                    <h3 class="text-white font-display text-3xl mb-8">
+                        EDUCATION RECORD
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- USC -->
+                        <div
+                            class="bg-gray-900/50 p-6 border-l-4 border-persona-accent"
+                        >
+                            <h4 class="text-persona-accent font-bold text-xl">
+                                UNIVERSITY OF SOUTHERN CALIFORNIA
+                            </h4>
+                            <p class="text-white font-bold">
+                                MASTER OF SCIENCE — COMPUTER SCIENCE
+                            </p>
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="text-gray-400 text-sm">
+                                    AUG 2025 — MAY 2027
+                                </p>
+                                <p
+                                    class="text-white font-mono text-sm border border-white px-2"
+                                >
+                                    CGPA: 3.4 / 4.0
+                                </p>
+                            </div>
+
+                            <p
+                                class="text-xs text-persona-yellow uppercase font-bold mb-2"
+                            >
+                                ACTIVE ROLES
+                            </p>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>
+                                    • Daily Trojan — Social Media Design Staffer
+                                </li>
+                                <li>
+                                    • ICU Multimodal Healthcare AI — Project
+                                    Lead
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- NMIMS -->
+                        <div
+                            class="bg-gray-900/50 p-6 border-l-4 border-gray-600"
+                        >
+                            <h4 class="text-white font-bold text-xl">
+                                NMIMS UNIVERSITY
+                            </h4>
+                            <p class="text-white font-bold">
+                                BACHELOR OF TECHNOLOGY — IT
+                            </p>
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="text-gray-400 text-sm">
+                                    SEP 2021 — MAY 2025
+                                </p>
+                                <p
+                                    class="text-white font-mono text-sm border border-white px-2"
+                                >
+                                    CGPA: 3.62 / 4.0
+                                </p>
+                            </div>
+
+                            <p
+                                class="text-xs text-gray-500 uppercase font-bold mb-2"
+                            >
+                                HONORS
+                            </p>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>
+                                    • Technical Research Award — Batch of 2025
+                                </li>
+                                <li>
+                                    • Student Ambassador Award — Batch of 2025
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex flex-col items-center gap-6 w-full">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <PersonaButton
+                            href="mailto:theayushdeo@gmail.com"
+                            client:visible
+                        >
+                            LET'S TALK
+                        </PersonaButton>
+                        <PersonaButton
+                            href="/resume.pdf"
+                            external
+                            client:visible
+                        >
+                            DOWNLOAD DATA
+                        </PersonaButton>
+                    </div>
+
+                    <!-- External Links Footer -->
+                    <!-- Footer Signature -->
+                    <div
+                        class="mt-8 text-center border-t border-gray-800 pt-6 w-full max-w-lg"
+                    >
+                        <p class="font-ui text-gray-500 text-sm">
+                            Designed by <span class="text-white">Ayush D.</span> with
+                            🤍, from Mumbai to Los Angeles
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gentle floating mask icon decor -->
+                <div
+                    class="absolute -right-10 -top-10 text-9xl text-persona-red opacity-20 rotate-12 pointer-events-none select-none"
+                >
+                    🎭
+                </div>
+            </div>
+        </div>
+    </PageTransition>
+</PersonaLayout>

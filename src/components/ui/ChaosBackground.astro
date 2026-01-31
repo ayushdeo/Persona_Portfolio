@@ -1,0 +1,86 @@
+---
+
+---
+
+<div
+    class="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-persona-black"
+>
+    <!-- Heavy Halftone Pattern (Top Right) -->
+    <div
+        class="absolute -top-20 -right-20 w-[800px] h-[800px] bg-[radial-gradient(circle,theme('colors.persona.black')_2px,transparent_2.5px)] bg-[length:12px_12px] opacity-20 rotate-12 transform scale-150"
+    >
+    </div>
+
+    <!-- Jagged Red Slash (Background) -->
+    <div
+        class="absolute top-0 right-0 w-2/3 h-full bg-persona-red clip-path-jagged opacity-90 transform skew-x-12 translate-x-20"
+    >
+    </div>
+
+    <!-- White Halftone Overlay on Red -->
+    <div
+        class="absolute top-0 right-0 w-2/3 h-full bg-[radial-gradient(circle,theme('colors.persona.white')_1px,transparent_1.5px)] bg-[length:6px_6px] opacity-30 transform skew-x-12 translate-x-20 mix-blend-overlay"
+    >
+    </div>
+
+    <!-- Random Floating Shapes -->
+    <div
+        class="absolute top-1/4 left-10 w-64 h-64 border-4 border-persona-red opacity-40 rotate-[15deg]"
+    >
+    </div>
+    <div
+        class="absolute bottom-10 left-20 w-96 h-20 bg-persona-yellow transform -skew-x-[45deg] opacity-80 mix-blend-difference"
+    >
+    </div>
+
+    <!-- Star Burst (CSS) -->
+    <div
+        class="absolute top-1/2 left-1/2 w-96 h-96 bg-persona-white clip-path-star opacity-10 animate-spin-slow"
+    >
+    </div>
+
+    <!-- Noise Texture (Global) -->
+    <div
+        class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC41IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')]"
+    >
+    </div>
+</div>
+
+<style>
+    .clip-path-jagged {
+        clip-path: polygon(
+            20% 0%,
+            100% 0%,
+            100% 100%,
+            0% 100%,
+            15% 50%,
+            5% 40%,
+            10% 20%
+        );
+    }
+    .clip-path-star {
+        clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+        );
+    }
+    .animate-spin-slow {
+        animation: spin 60s linear infinite;
+    }
+    @keyframes spin {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>

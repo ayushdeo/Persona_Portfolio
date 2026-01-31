@@ -1,0 +1,121 @@
+---
+import PersonaLayout from "../components/layout/PersonaLayout.astro";
+import PersonaButton from "../components/ui/PersonaButton";
+import MaskReveal from "../components/ui/MaskReveal";
+import PageTransition from "../components/motion/PageTransition";
+import ChaosBackground from "../components/ui/ChaosBackground.astro";
+import MissionVisuals from "../components/ui/MissionVisuals";
+import AyushDeoCard from "../components/ui/AyushDeoCard";
+---
+
+<PersonaLayout title="MISSION START">
+    <ChaosBackground />
+
+    <PageTransition client:load>
+        <div
+            class="min-h-screen w-full relative overflow-x-hidden overflow-y-visible flex flex-col justify-center items-center md:items-start p-4 md:pl-20 pt-32 md:pt-40"
+        >
+            <!-- Floating Decorative Elements (Foreground) -->
+            <div
+                class="absolute top-20 right-20 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-20 shadow-[8px_8px_0px_#000]"
+            >
+                01
+            </div>
+
+            <!-- Bleed Zone Wrapper -->
+            <div class="w-full relative -mx-[10vw] px-[10vw]">
+                <MissionVisuals client:load />
+
+                <!-- Main Kinetic Typography Stack -->
+                <div
+                    class="relative z-10 transform md:-rotate-6 scale-90 md:scale-100 origin-center md:origin-left pointer-events-none"
+                >
+                    <div class="relative">
+                        <MaskReveal
+                            client:load
+                            delay={0.2}
+                            className="p-8 -m-8"
+                        >
+                            <h1
+                                class="text-7xl md:text-[11rem] font-display leading-[0.8] tracking-tighter italic text-white drop-shadow-[8px_8px_0px_#000] stroke-black stroke-2"
+                                style="-webkit-text-stroke: 3px black;"
+                            >
+                                TAKE
+                            </h1>
+                        </MaskReveal>
+                        <!-- Background Red Slash for "TAKE" -->
+                        <div
+                            class="absolute top-1/2 left-0 w-[120%] h-1/2 bg-persona-black -z-10 transform -skew-x-12 translate-y-2 mix-blend-hard-light"
+                        >
+                        </div>
+                    </div>
+
+                    <div class="relative ml-10 md:ml-32 -mt-4 md:-mt-10">
+                        <MaskReveal
+                            client:load
+                            delay={0.4}
+                            className="p-8 -m-8"
+                        >
+                            <h1
+                                class="text-7xl md:text-[11rem] font-display leading-[0.8] tracking-tighter italic text-persona-black drop-shadow-[8px_8px_0px_#fff]"
+                                style="-webkit-text-stroke: 2px white; text-shadow: 6px 6px 0px white;"
+                            >
+                                YOUR
+                            </h1>
+                        </MaskReveal>
+                    </div>
+
+                    <div class="relative ml-4 md:ml-12 -mt-4 md:-mt-10">
+                        <MaskReveal
+                            client:load
+                            delay={0.6}
+                            className="p-8 -m-8"
+                        >
+                            <h1
+                                class="text-8xl md:text-[13rem] font-display leading-[0.8] tracking-tighter italic text-persona-red drop-shadow-[10px_10px_0px_#000]"
+                                style="-webkit-text-stroke: 4px black;"
+                            >
+                                SHOT
+                            </h1>
+                        </MaskReveal>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section - Aggressive & Framed -->
+            <div class="absolute bottom-12 right-12 md:right-20 z-20">
+                <MaskReveal client:load delay={1.4} className="p-4 -m-4">
+                    <div class="relative group">
+                        <!-- Animated Backing Frame -->
+                        <div
+                            class="absolute -inset-4 bg-black transform -skew-x-12 opacity-80 border-2 border-white group-hover:border-persona-red group-hover:opacity-100 group-hover:scale-105 transition-all duration-200 ease-out"
+                        >
+                        </div>
+
+                        <div
+                            class="transform -rotate-2 group-hover:rotate-0 transition-transform duration-200"
+                        >
+                            <!-- Using PersonaButton but keeping the wrapper for extra effects -->
+                            <PersonaButton
+                                href="/stats"
+                                client:load
+                                className="border-white shadow-[8px_8px_0px_#e60012] group-hover:translate-x-1 group-active:translate-y-1"
+                            >
+                                <span class="mr-2">⚡</span> ENTER THE METAVERSE
+                            </PersonaButton>
+                        </div>
+                    </div>
+                </MaskReveal>
+            </div>
+
+            <!-- Context Text - Moved Higher -->
+            <div
+                class="absolute top-48 right-12 md:right-20 text-right z-20 perspective-1000"
+            >
+                <MaskReveal client:load delay={1} className="p-4">
+                    <AyushDeoCard client:visible />
+                </MaskReveal>
+            </div>
+        </div>
+    </PageTransition>
+</PersonaLayout>

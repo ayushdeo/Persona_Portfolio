@@ -1,0 +1,17 @@
+.persona-panel {
+  @apply bg-persona-black text-persona-white
+         border-4 border-persona-white
+         skew-x-[-6deg] p-6;
+}
+
+.persona-outline {
+  text-shadow:
+    -2px 0 #000,
+     2px 0 #000,
+     0 -2px #000,
+     0 2px #000;
+}
+
+.persona-slashed {
+  clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%, 5% 50%);
+}

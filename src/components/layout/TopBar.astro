@@ -1,0 +1,41 @@
+---
+import PersonaCommandButtons from "../ui/PersonaCommandButtons";
+
+interface Props {
+    title: string;
+    mode?: "red" | "blue" | "yellow" | "purple";
+}
+
+const { title, mode = "red" } = Astro.props;
+
+const isMissionStart = title?.toUpperCase() === "MISSION START";
+---
+
+<header
+    class="h-20 flex items-center justify-between px-10 border-b-4 border-white bg-persona-black relative overflow-hidden"
+>
+    <!-- Slanted Accent Background Decor -->
+    <div
+        class="absolute top-0 right-0 h-full w-1/3 bg-persona-accent transform -skew-x-12 translate-x-10 z-0 transition-colors duration-500"
+    >
+    </div>
+
+    <div class="relative z-10 flex items-center gap-4">
+        <div
+            class="w-8 h-8 bg-persona-yellow rotate-45 border-2 border-black animate-pulse"
+        >
+        </div>
+        <div
+            class="font-ui font-black text-lg tracking-widest text-persona-white drop-shadow-md"
+        >
+            LOCATION: <span
+                class="font-display text-persona-accent ml-2 text-2xl tracking-normal transition-colors duration-500"
+                >{title?.toUpperCase() || "UNKNOWN"}</span
+            >
+        </div>
+    </div>
+
+    <div class="relative z-10">
+        <PersonaCommandButtons client:load mode={mode} />
+    </div>
+</header>

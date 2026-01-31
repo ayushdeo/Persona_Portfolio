@@ -1,0 +1,15 @@
+---
+interface Props {
+    bg?: string;
+    height?: string;
+}
+
+const { bg = "bg-persona-white", height = "h-4" } = Astro.props;
+---
+
+<div class={`w-full ${height} ${bg} transform -skew-x-12 my-8 relative overflow-hidden`}>
+    <!-- Moving slanted stripes inside -->
+    <div class="absolute inset-0 bg-black opacity-20" 
+         style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, black 10px, black 20px);">
+    </div>
+</div>
