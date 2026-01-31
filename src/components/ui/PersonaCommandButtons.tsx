@@ -36,7 +36,7 @@ export default function PersonaCommandButtons({ mode = 'red' }: PersonaCommandBu
     }[mode];
 
     return (
-        <div className="flex items-center gap-4 z-50 relative">
+        <div className="flex items-center gap-1 z-50 relative">
             {links.map((link, i) => (
                 <motion.a
                     key={link.label}

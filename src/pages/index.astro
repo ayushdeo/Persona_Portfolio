@@ -13,19 +13,18 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
 
     <PageTransition client:load>
         <div
-            class="min-h-screen w-full relative overflow-x-hidden overflow-y-visible flex flex-col justify-center items-center md:items-start p-4 md:pl-20 pt-32 md:pt-40"
+            class="h-full w-full relative overflow-hidden flex flex-col justify-center items-center md:items-start px-4 md:pl-20 pt-8 pb-0"
         >
+            <MissionVisuals client:load />
             <!-- Floating Decorative Elements (Foreground) -->
             <div
-                class="absolute top-20 right-20 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-20 shadow-[8px_8px_0px_#000]"
+                class="absolute bottom-96 right-12 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-30 shadow-[8px_8px_0px_#000]"
             >
                 01
             </div>
 
             <!-- Bleed Zone Wrapper -->
             <div class="w-full relative -mx-[10vw] px-[10vw]">
-                <MissionVisuals client:load />
-
                 <!-- Main Kinetic Typography Stack -->
                 <div
                     class="relative z-10 transform md:-rotate-6 scale-90 md:scale-100 origin-center md:origin-left pointer-events-none"
@@ -40,14 +39,14 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
                                 class="text-7xl md:text-[11rem] font-display leading-[0.8] tracking-tighter italic text-white drop-shadow-[8px_8px_0px_#000] stroke-black stroke-2"
                                 style="-webkit-text-stroke: 3px black;"
                             >
-                                TAKE
+                                <span class="relative inline-block px-6">
+                                    <span
+                                        class="absolute left-0 top-1/2 w-full h-1/2 bg-persona-black transform -skew-x-12 -z-10 mix-blend-hard-light translate-y-2"
+                                    ></span>
+                                    TAKE
+                                </span>
                             </h1>
                         </MaskReveal>
-                        <!-- Background Red Slash for "TAKE" -->
-                        <div
-                            class="absolute top-1/2 left-0 w-[120%] h-1/2 bg-persona-black -z-10 transform -skew-x-12 translate-y-2 mix-blend-hard-light"
-                        >
-                        </div>
                     </div>
 
                     <div class="relative ml-10 md:ml-32 -mt-4 md:-mt-10">
@@ -108,9 +107,9 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
                 </MaskReveal>
             </div>
 
-            <!-- Context Text - Moved Higher -->
+            <!-- Context Text - Moved Lower -->
             <div
-                class="absolute top-48 right-12 md:right-20 text-right z-20 perspective-1000"
+                class="absolute bottom-36 right-12 md:right-20 text-right z-20 perspective-1000"
             >
                 <MaskReveal client:load delay={1} className="p-4">
                     <AyushDeoCard client:visible />
