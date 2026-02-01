@@ -1,33 +1,32 @@
 ---
-const base = import.meta.env.BASE_URL;
 const links = [
     {
         name: "MISSION START",
-        href: `${base === "/" ? "" : base}/`,
+        href: `${import.meta.env.BASE_URL}`,
         color: "text-persona-red",
         hover: "hover:text-persona-red",
     },
     {
         name: "STATS",
-        href: `${base === "/" ? "" : base}/stats`,
+        href: `${import.meta.env.BASE_URL}stats/`,
         color: "text-persona-purple",
         hover: "hover:text-persona-purple",
     },
     {
         name: "ARSENAL",
-        href: `${base === "/" ? "" : base}/arsenal`,
+        href: `${import.meta.env.BASE_URL}arsenal/`,
         color: "text-persona-blue",
         hover: "hover:text-persona-blue",
     },
     {
         name: "CONFIDANTS",
-        href: `${base === "/" ? "" : base}/confidants`,
+        href: `${import.meta.env.BASE_URL}confidants/`,
         color: "text-persona-yellow",
         hover: "hover:text-persona-yellow",
     },
     {
         name: "SAFE ROOM",
-        href: `${base === "/" ? "" : base}/safe-room`,
+        href: `${import.meta.env.BASE_URL}safe-room/`,
         color: "text-persona-red",
         hover: "hover:text-persona-red",
     },
