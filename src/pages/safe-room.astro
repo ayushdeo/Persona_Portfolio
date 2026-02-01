@@ -139,7 +139,7 @@ import USCOverlay from "../components/ui/USCOverlay.astro";
                             LET'S TALK
                         </PersonaButton>
                         <PersonaButton
-                            href="/resume.pdf"
+                            href={`${import.meta.env.BASE_URL}/resume.pdf`}
                             external
                             client:visible
                         >
