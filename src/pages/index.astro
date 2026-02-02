@@ -16,16 +16,16 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
             class="h-full w-full relative overflow-hidden flex flex-col justify-center items-center md:items-start px-4 md:pl-20 pt-8 pb-0"
         >
             <MissionVisuals client:load />
-            <!-- Floating Decorative Elements (Foreground) -->
+            <!-- Foreground deco -->
             <div
                 class="absolute bottom-96 right-12 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-30 shadow-[8px_8px_0px_#000]"
             >
                 01
             </div>
 
-            <!-- Bleed Zone Wrapper -->
+            <!-- Full-width bleed -->
             <div class="w-full relative -mx-[10vw] px-[10vw]">
-                <!-- Main Kinetic Typography Stack -->
+                <!-- Kinetic type stack -->
                 <div
                     class="relative z-10 transform md:-rotate-6 scale-90 md:scale-100 origin-center md:origin-left pointer-events-none"
                 >
@@ -81,11 +81,11 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
                 </div>
             </div>
 
-            <!-- CTA Section - Aggressive & Framed -->
+            <!-- CTA -->
             <div class="absolute bottom-12 right-12 md:right-20 z-20">
                 <MaskReveal client:load delay={1.4} className="p-4 -m-4">
                     <div class="relative group">
-                        <!-- Animated Backing Frame -->
+                        <!-- Animated Frame -->
                         <div
                             class="absolute -inset-4 bg-black transform -skew-x-12 opacity-80 border-2 border-white group-hover:border-persona-red group-hover:opacity-100 group-hover:scale-105 transition-all duration-200 ease-out"
                         >
@@ -94,7 +94,7 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
                         <div
                             class="transform -rotate-2 group-hover:rotate-0 transition-transform duration-200"
                         >
-                            <!-- Using PersonaButton but keeping the wrapper for extra effects -->
+                            <!-- Wrapper for extra effects -->
                             <PersonaButton
                                 href={`${import.meta.env.BASE_URL}/stats/`}
                                 client:load
@@ -107,7 +107,7 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
                 </MaskReveal>
             </div>
 
-            <!-- Context Text - Moved Lower -->
+            <!-- Context text -->
             <div
                 class="absolute bottom-36 right-12 md:right-20 text-right z-20 perspective-1000"
             >

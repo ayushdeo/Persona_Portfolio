@@ -12,7 +12,7 @@ export default function PersonaCommandButtons({ mode = 'red' }: PersonaCommandBu
         { label: "HANDSHAKE", url: "https://app.joinhandshake.com/profiles/ayushdeo", delay: 0.2 }
     ];
 
-    // Map mode to accent colors for hover
+    // Hover accents
     const accentColorClass = {
         red: "group-hover:bg-persona-red group-hover:text-white",
         blue: "group-hover:bg-persona-blue group-hover:text-white",
@@ -27,7 +27,7 @@ export default function PersonaCommandButtons({ mode = 'red' }: PersonaCommandBu
         purple: "group-hover:border-persona-purple",
     }[mode];
 
-    // Default text color matches the page theme (for visibility on white background)
+    // Text colors (match theme)
     const textColorClass = {
         red: "text-persona-red",
         blue: "text-persona-blue",
@@ -50,7 +50,7 @@ export default function PersonaCommandButtons({ mode = 'red' }: PersonaCommandBu
                     whileHover="hover"
                     whileTap="tap"
                 >
-                    {/* Background layer for depth/flash */}
+                    {/* Flash layer */}
                     <motion.div
                         className={`absolute inset-0 bg-black transform skew-x-[-12deg] translate-x-1 translate-y-1 ${borderColorClass} border-2 transition-colors duration-0`}
                         variants={{
@@ -59,7 +59,7 @@ export default function PersonaCommandButtons({ mode = 'red' }: PersonaCommandBu
                         }}
                     />
 
-                    {/* Main Button Block */}
+                    {/* Button Block */}
                     <motion.div
                         className={`relative bg-white border-2 border-black transform skew-x-[-12deg] px-4 py-1 ${textColorClass} ${accentColorClass} transition-colors duration-100 ease-linear`}
                         variants={{

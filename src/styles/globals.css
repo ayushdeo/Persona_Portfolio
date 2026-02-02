@@ -7,10 +7,10 @@
 body {
     @apply bg-persona-black text-persona-white font-ui;
     --theme-accent: #e60012;
-    /* Default Red */
+    /* Default */
 }
 
-/* Color Modes */
+/* Themes */
 .theme-red {
     --theme-accent: #e60012;
 }
@@ -19,17 +19,17 @@ body {
     --theme-accent: #0095f6;
 }
 
-/* P3 Blue */
+/* Blue (P3) */
 .theme-yellow {
     --theme-accent: #f5c400;
 }
 
-/* P4 Yellow */
+/* Yellow (P4) */
 .theme-purple {
     --theme-accent: #9d50bb;
 }
 
-/* P1 Purple */
+/* Purple (P1) */
 
 
 h1,
@@ -41,7 +41,7 @@ h6 {
     @apply font-display uppercase;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }

@@ -23,7 +23,7 @@ export default function StatCard({ skill, category, level, description, delay = 
                 boxShadow: "5px 5px 0px 0px #f5c400"
             }}
         >
-            <div className="transform skew-x-5"> {/* Unskew content */}
+            <div className="transform skew-x-5"> {/* Unskew */}
                 <h4 className="text-gray-500 font-ui font-black text-xs tracking-widest uppercase mb-1">{category}</h4>
                 <h3 className="text-2xl font-display text-white uppercase group-hover:text-persona-yellow transition-colors">{skill}</h3>
 

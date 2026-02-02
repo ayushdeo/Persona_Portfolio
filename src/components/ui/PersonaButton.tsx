@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function PersonaButton({ href, children, onClick, className = "", external = false }: Props) {
-    // If it's a link, use motion.a, otherwise motion.button
+    // Link vs Button
     const Component = href ? motion.a : motion.button;
 
     return (
@@ -33,7 +33,7 @@ export default function PersonaButton({ href, children, onClick, className = "",
                 {children}
             </span>
 
-            {/* Hover Fill Effect - White swipe */}
+            {/* Hover fill */}
             <motion.div
                 className="absolute inset-0 bg-persona-white z-0"
                 initial={{ x: "-100%" }}
@@ -41,7 +41,7 @@ export default function PersonaButton({ href, children, onClick, className = "",
                 transition={{ type: "tween", ease: "circOut", duration: 0.3 }}
             />
 
-            {/* Corner Decor */}
+            {/* Corners */}
             <div className="absolute top-0 right-0 p-1">
                 <div className="w-2 h-2 bg-persona-yellow"></div>
             </div>

@@ -2,13 +2,13 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function MissionVisuals() {
-    // Parallax logic or just slow drift
+    // Slow drift parallax
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Right Side Visuals Container */}
+            {/* Right Side Visuals */}
             <div className="absolute right-0 top-0 bottom-0 w-1/2 h-full z-0 opacity-60 mix-blend-hard-light">
 
-                {/* Floating Large Shapes - Subtle Parallax */}
+                {/* Floating Shapes */}
                 <motion.div
                     animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
                     transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
@@ -25,8 +25,7 @@ export default function MissionVisuals() {
                     <div className="w-40 h-80 bg-black border-2 border-white transform -skew-x-12"></div>
                 </motion.div>
 
-                {/* Shards / Slashes */}
-                {/* Animated Star Shard */}
+                {/* Shards */}
                 <motion.div
                     animate={{ scale: [1, 1.1, 1], rotate: [0, -5, 0] }}
                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
