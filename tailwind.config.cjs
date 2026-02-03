@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        'laptop': { 'raw': '(max-width: 1440px) and (max-height: 900px)' },
+      },
       colors: {
         persona: {
           red: "#e60012",

@@ -13,12 +13,12 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
 
     <PageTransition client:load>
         <div
-            class="h-full w-full relative overflow-hidden flex flex-col justify-center items-center md:items-start px-4 md:pl-20 pt-8 pb-0"
+            class="h-full w-full relative overflow-hidden flex flex-col justify-center items-center md:items-start px-4 md:pl-20 pt-8 laptop:pt-4 pb-0 origin-left laptop:scale-90 laptop:-translate-y-16"
         >
             <MissionVisuals client:load />
             <!-- Foreground deco -->
             <div
-                class="absolute bottom-96 right-12 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-30 shadow-[8px_8px_0px_#000]"
+                class="absolute bottom-96 laptop:bottom-[20rem] right-12 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-30 shadow-[8px_8px_0px_#000]"
             >
                 01
             </div>
@@ -39,7 +39,9 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
                                 class="text-7xl md:text-[11rem] font-display leading-[0.8] tracking-tighter italic text-white drop-shadow-[8px_8px_0px_#000] stroke-black stroke-2"
                                 style="-webkit-text-stroke: 3px black;"
                             >
-                                <span class="relative inline-block px-6">
+                                <span
+                                    class="relative inline-block px-6 laptop:px-3"
+                                >
                                     <span
                                         class="absolute left-0 top-1/2 w-full h-1/2 bg-persona-black transform -skew-x-12 -z-10 mix-blend-hard-light translate-y-2"
                                     ></span>
@@ -82,7 +84,9 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
             </div>
 
             <!-- CTA -->
-            <div class="absolute bottom-12 right-12 md:right-20 z-20">
+            <div
+                class="absolute bottom-12 laptop:bottom-8 right-12 md:right-20 z-20"
+            >
                 <MaskReveal client:load delay={1.4} className="p-4 -m-4">
                     <div class="relative group">
                         <!-- Animated Frame -->
@@ -109,7 +113,7 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
 
             <!-- Context text -->
             <div
-                class="absolute bottom-36 right-12 md:right-20 text-right z-20 perspective-1000"
+                class="absolute bottom-36 laptop:bottom-28 right-12 md:right-20 text-right z-20 perspective-1000"
             >
                 <MaskReveal client:load delay={1} className="p-4">
                     <AyushDeoCard client:visible />
