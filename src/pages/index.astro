@@ -1,11 +1,10 @@
 ---
 import PersonaLayout from "../components/layout/PersonaLayout.astro";
-import PersonaButton from "../components/ui/PersonaButton";
 import MaskReveal from "../components/ui/MaskReveal";
 import PageTransition from "../components/motion/PageTransition";
 import ChaosBackground from "../components/ui/ChaosBackground.astro";
 import MissionVisuals from "../components/ui/MissionVisuals";
-import AyushDeoCard from "../components/ui/AyushDeoCard";
+import CallingCard from "../components/ui/CallingCard.astro";
 ---
 
 <PersonaLayout title="MISSION START">
@@ -13,110 +12,91 @@ import AyushDeoCard from "../components/ui/AyushDeoCard";
 
     <PageTransition client:load>
         <div
-            class="h-full w-full relative overflow-hidden flex flex-col justify-center items-center md:items-start px-4 md:pl-20 pt-8 laptop:pt-4 pb-0 origin-left laptop:scale-90 laptop:-translate-y-16"
+            class="relative min-h-full w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-4 items-center px-1 md:px-6 xl:px-10 py-2 lg:py-0"
         >
             <MissionVisuals client:load />
-            <!-- Foreground deco -->
+
+            <!-- Kinetic type + nameplate -->
             <div
-                class="absolute bottom-96 laptop:bottom-[20rem] right-12 bg-white text-black font-display text-4xl transform rotate-12 px-4 py-2 border-4 border-black z-30 shadow-[8px_8px_0px_#000]"
+                class="lg:col-span-5 2xl:col-span-6 relative z-10 pointer-events-none"
             >
-                01
-            </div>
-
-            <!-- Full-width bleed -->
-            <div class="w-full relative -mx-[10vw] px-[10vw]">
-                <!-- Kinetic type stack -->
                 <div
-                    class="relative z-10 transform md:-rotate-6 scale-90 md:scale-100 origin-center md:origin-left pointer-events-none"
+                    class="transform -rotate-6 origin-center md:origin-left scale-90 md:scale-100"
                 >
-                    <div class="relative">
-                        <MaskReveal
-                            client:load
-                            delay={0.2}
-                            className="p-8 -m-8"
+                    <MaskReveal client:load delay={0.2} className="p-6 -m-6">
+                        <h1
+                            class="text-6xl sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] 2xl:text-[10rem] font-display leading-[0.8] tracking-tighter italic text-white drop-shadow-[8px_8px_0px_#000]"
+                            style="-webkit-text-stroke: 3px black;"
                         >
-                            <h1
-                                class="text-7xl md:text-[11rem] font-display leading-[0.8] tracking-tighter italic text-white drop-shadow-[8px_8px_0px_#000] stroke-black stroke-2"
-                                style="-webkit-text-stroke: 3px black;"
-                            >
+                            <span class="relative inline-block px-4">
                                 <span
-                                    class="relative inline-block px-6 laptop:px-3"
-                                >
-                                    <span
-                                        class="absolute left-0 top-1/2 w-full h-1/2 bg-persona-black transform -skew-x-12 -z-10 mix-blend-hard-light translate-y-2"
-                                    ></span>
-                                    TAKE
-                                </span>
-                            </h1>
-                        </MaskReveal>
-                    </div>
+                                    class="absolute left-0 top-1/2 w-full h-1/2 bg-persona-black transform -skew-x-12 -z-10 translate-y-2"
+                                ></span>
+                                TAKE
+                            </span>
+                        </h1>
+                    </MaskReveal>
 
-                    <div class="relative ml-10 md:ml-32 -mt-4 md:-mt-10">
+                    <div class="ml-8 md:ml-24 -mt-6 md:-mt-10">
                         <MaskReveal
                             client:load
                             delay={0.4}
-                            className="p-8 -m-8"
+                            className="p-6 -m-6"
                         >
-                            <h1
-                                class="text-7xl md:text-[11rem] font-display leading-[0.8] tracking-tighter italic text-persona-black drop-shadow-[8px_8px_0px_#fff]"
+                            <p
+                                class="text-6xl sm:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] 2xl:text-[10rem] font-display leading-[0.8] tracking-tighter italic text-persona-black"
                                 style="-webkit-text-stroke: 2px white; text-shadow: 6px 6px 0px white;"
+                                aria-hidden="true"
                             >
                                 YOUR
-                            </h1>
+                            </p>
                         </MaskReveal>
                     </div>
 
-                    <div class="relative ml-4 md:ml-12 -mt-4 md:-mt-10">
+                    <div class="ml-2 md:ml-10 -mt-6 md:-mt-10">
                         <MaskReveal
                             client:load
                             delay={0.6}
-                            className="p-8 -m-8"
+                            className="p-6 -m-6"
                         >
-                            <h1
-                                class="text-8xl md:text-[13rem] font-display leading-[0.8] tracking-tighter italic text-persona-red drop-shadow-[10px_10px_0px_#000]"
+                            <p
+                                class="text-7xl sm:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] 2xl:text-[12rem] font-display leading-[0.8] tracking-tighter italic text-persona-red drop-shadow-[10px_10px_0px_#000]"
                                 style="-webkit-text-stroke: 4px black;"
+                                aria-hidden="true"
                             >
                                 SHOT
-                            </h1>
+                            </p>
                         </MaskReveal>
                     </div>
                 </div>
-            </div>
 
-            <!-- CTA -->
-            <div
-                class="absolute bottom-12 laptop:bottom-8 right-12 md:right-20 z-20"
-            >
-                <MaskReveal client:load delay={1.4} className="p-4 -m-4">
-                    <div class="relative group">
-                        <!-- Animated Frame -->
-                        <div
-                            class="absolute -inset-4 bg-black transform -skew-x-12 opacity-80 border-2 border-white group-hover:border-persona-red group-hover:opacity-100 group-hover:scale-105 transition-all duration-200 ease-out"
-                        >
-                        </div>
-
-                        <div
-                            class="transform -rotate-2 group-hover:rotate-0 transition-transform duration-200"
-                        >
-                            <!-- Wrapper for extra effects -->
-                            <PersonaButton
-                                href={`${import.meta.env.BASE_URL}/stats/`}
-                                client:load
-                                className="border-white shadow-[8px_8px_0px_#e60012] group-hover:translate-x-1 group-active:translate-y-1"
+                <!-- Nameplate: who this is, at a glance -->
+                <MaskReveal client:load delay={0.9}>
+                    <div
+                        class="inline-block bg-white border-4 border-black shadow-[6px_6px_0px_#e60012] -skew-x-12 px-5 py-2"
+                    >
+                        <div class="skew-x-12">
+                            <p
+                                class="font-display text-3xl md:text-4xl text-black leading-none"
                             >
-                                <span class="mr-2">⚡</span> ENTER THE METAVERSE
-                            </PersonaButton>
+                                AYUSH DEO
+                            </p>
+                            <p
+                                class="font-ui font-black text-[11px] md:text-xs tracking-[0.2em] text-gray-700 mt-1"
+                            >
+                                APPLIED AI RESEARCH · M.S. CS @ USC
+                            </p>
                         </div>
                     </div>
                 </MaskReveal>
             </div>
 
-            <!-- Context text -->
+            <!-- Calling card: the elevator pitch -->
             <div
-                class="absolute bottom-36 laptop:bottom-28 right-12 md:right-20 text-right z-20 perspective-1000"
+                class="lg:col-span-7 2xl:col-span-6 relative z-20 flex lg:justify-end"
             >
-                <MaskReveal client:load delay={1} className="p-4">
-                    <AyushDeoCard client:visible />
+                <MaskReveal client:load delay={1.0} className="w-full flex lg:justify-end lg:-my-5">
+                    <CallingCard />
                 </MaskReveal>
             </div>
         </div>

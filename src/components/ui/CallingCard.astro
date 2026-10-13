@@ -1,0 +1,163 @@
+---
+import PersonaButton from "./PersonaButton";
+import { links, objective, activeMissions, nav } from "../../data/profile";
+
+// Ransom-note lettering: each glyph gets its own clipping, like the P5 cards
+const word = "CALLING CARD";
+const styles = [
+    "bg-white text-black font-display",
+    "bg-black text-white font-serif italic",
+    "bg-persona-yellow text-black font-display",
+    "bg-white text-persona-red font-mono font-bold",
+    "bg-black text-persona-yellow font-display",
+    "bg-white text-black font-serif font-bold",
+];
+const tilts = ["-rotate-6", "rotate-3", "-rotate-2", "rotate-6", "-rotate-3", "rotate-2"];
+// Group glyphs by word so a line never breaks mid-word
+let n = 0;
+const words = word.split(" ").map((w) =>
+    [...w].map((ch) => {
+        const i = n++;
+        return { ch, cls: `${styles[i % styles.length]} ${tilts[(i * 5) % tilts.length]}` };
+    }),
+);
+
+const facts = [
+    { value: "6", label: "PUBLICATIONS" },
+    { value: "M.S. CS", label: "USC · 2027" },
+    { value: "150", label: "RESEARCHERS SERVED" },
+];
+---
+
+<article
+    class="relative bg-persona-black border-4 border-white shadow-[10px_10px_0px_#0b0b0b] lg:-rotate-1 max-w-[660px] w-full"
+    aria-labelledby="card-title"
+>
+    <!-- Red header band -->
+    <header
+        class="bg-persona-red border-b-4 border-black px-5 md:px-7 py-3 flex flex-wrap items-center justify-between gap-3"
+    >
+        <h2 id="card-title" class="flex flex-wrap gap-x-3 gap-y-1" aria-label={word}>
+            {
+                words.map((glyphs) => (
+                    <span class="inline-flex gap-[3px] whitespace-nowrap" aria-hidden="true">
+                        {glyphs.map(({ ch, cls }) => (
+                            <span
+                                class={`inline-block px-1 md:px-1.5 text-lg md:text-2xl leading-tight border-2 border-black ${cls}`}
+                            >
+                                {ch}
+                            </span>
+                        ))}
+                    </span>
+                ))
+            }
+        </h2>
+        <span class="font-mono text-[11px] text-white/90 tracking-widest lg:hidden 2xl:inline"
+            >FILE 01 // AYUSH DEO</span
+        >
+    </header>
+
+    <div class="px-5 md:px-7 py-5 space-y-4 2xl:space-y-6">
+        <p
+            class="font-display text-persona-yellow text-base md:text-lg tracking-widest"
+        >
+            TO WHOEVER'S READING THIS:
+        </p>
+
+        <p class="font-ui text-base 2xl:text-[17px] leading-normal 2xl:leading-relaxed text-gray-100">
+            I'm <strong class="text-white">Ayush Deo</strong>, a computer science
+            master's student at USC. I do applied AI research and I ship
+            production systems: <strong class="text-white"
+                >six peer-reviewed publications</strong
+            > in NLP and computer vision, and a multi-agent RAG pipeline that took
+            two global banks' reporting from <strong class="text-white"
+                >two weeks to under ten minutes</strong
+            >.
+        </p>
+
+        <!-- Objective + active missions -->
+        <div class="grid sm:grid-cols-2 gap-4">
+            <div class="border-l-4 border-persona-red pl-4">
+                <p
+                    class="font-ui font-black text-[11px] tracking-[0.2em] text-gray-400"
+                >
+                    PRIMARY OBJECTIVE
+                </p>
+                <p class="font-display text-2xl leading-tight text-white mt-1">
+                    {objective}
+                </p>
+            </div>
+            <div class="border-l-4 border-persona-yellow pl-4">
+                <p
+                    class="font-ui font-black text-[11px] tracking-[0.2em] text-gray-400 flex items-center gap-2"
+                >
+                    <span
+                        class="w-2 h-2 rounded-full bg-persona-yellow animate-pulse"
+                    ></span>
+                    ACTIVE MISSIONS · IN PROGRESS
+                </p>
+                <ul class="mt-1 space-y-1">
+                    {
+                        activeMissions.map((m) => (
+                            <li class="font-display text-xl leading-tight text-white">
+                                {m.title}
+                                <span class="block font-ui text-sm text-gray-400 normal-case">
+                                    {m.detail}
+                                </span>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick facts -->
+        <dl class="grid grid-cols-3 border-y-2 border-dashed border-gray-700 py-3">
+            {
+                facts.map((f) => (
+                    <div class="px-2 first:pl-0 border-r border-gray-800 last:border-r-0">
+                        <dt class="sr-only">{f.label}</dt>
+                        <dd class="font-display text-2xl md:text-3xl text-persona-yellow leading-none">
+                            {f.value}
+                        </dd>
+                        <dd class="font-ui text-[10px] md:text-[11px] font-bold tracking-wider text-gray-400 mt-1 leading-tight">
+                            {f.label}
+                        </dd>
+                    </div>
+                ))
+            }
+        </dl>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3">
+            <PersonaButton
+                href={nav[3].href}
+                className="text-sm 2xl:text-base px-4 2xl:px-5 py-2"
+                client:visible
+            >
+                Research Prowess
+            </PersonaButton>
+            <PersonaButton
+                href={links.resume}
+                external
+                className="text-sm 2xl:text-base px-4 2xl:px-5 py-2 border-white"
+                client:visible
+            >
+                Résumé ↗
+            </PersonaButton>
+            <PersonaButton
+                href={links.email}
+                className="text-sm 2xl:text-base px-4 2xl:px-5 py-2 border-persona-yellow"
+                client:visible
+            >
+                Let's talk
+            </PersonaButton>
+        </div>
+
+        <p class="font-serif italic text-gray-400 text-right text-sm">
+            Take your shot. <span class="not-italic font-display text-white"
+                >— A.D.</span
+            >
+        </p>
+    </div>
+</article>

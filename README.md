@@ -24,11 +24,13 @@ Each route is styled around the game's metaphor:
 
 | Route | Purpose |
 |---|---|
-| `index` | Landing / hero with animated intro |
-| `arsenal` | Projects & skills showcase (`ProjectCard`, `MissionVisuals`) |
+| `index` | Mission Start: elevator pitch on a P5-style calling card (`CallingCard`) |
 | `stats` | Skills as a radar chart (`StatRadar`, `StatCard`) |
-| `confidants` | Collaborations / network (`ConfidantDeck`) |
-| `safe-room` | About / contact |
+| `arsenal` | Field record (experience) and capability showcase (`ProjectCard`) |
+| `research` | Research Prowess: publications, Scholar dossier, active investigations |
+| `safe-room` | About, education, off-the-clock interests, contact |
+
+`confidants` now redirects to `research`. Page copy lives in `src/data/profile.ts`.
 
 ## 🧱 How it's built
 
@@ -43,7 +45,8 @@ src/
 │   ├── layout/   # PersonaLayout, SideNav, TopBar
 │   ├── motion/   # PageTransition
 │   └── ui/       # cards, buttons, radar, mask reveals, backgrounds
-├── pages/        # index · arsenal · stats · confidants · safe-room
+├── data/         # profile.ts: experience, publications, interests
+├── pages/        # index · stats · arsenal · research · safe-room
 └── styles/       # global + persona theme
 ```
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from 'react';
+import { twMerge } from "tailwind-merge";
 
 interface Props {
     href?: string;
@@ -19,7 +20,7 @@ export default function PersonaButton({ href, children, onClick, className = "",
             onClick={onClick}
             target={external ? "_blank" : undefined}
             rel={external ? "noopener noreferrer" : undefined}
-            className={`relative group inline-flex items-center justify-center font-display text-xl uppercase tracking-widest px-8 py-3 bg-persona-black text-persona-white border-4 border-persona-red overflow-hidden cursor-pointer ${className}`}
+            className={twMerge("relative group inline-flex items-center justify-center font-display text-xl uppercase tracking-widest px-8 py-3 bg-persona-black text-persona-white border-4 border-persona-red overflow-hidden cursor-pointer", className)}
             whileHover={{
                 rotate: -2,
                 scale: 1.05,

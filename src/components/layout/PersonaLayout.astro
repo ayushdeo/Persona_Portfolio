@@ -33,9 +33,13 @@ const { title, mode = "red" } = Astro.props;
 			type="image/svg+xml"
 			href={`${import.meta.env.BASE_URL}/favicon.svg`}
 		/>
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Phantom Portfolio</title>
+		<title>{title} | Ayush Deo</title>
+		<meta
+			name="description"
+			content="Ayush Deo: CS master's student at USC working on applied research in language systems, with six peer-reviewed papers in NLP and computer vision and production engineering experience."
+		/>
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,7 +57,7 @@ const { title, mode = "red" } = Astro.props;
 			<div class="flex-1 flex flex-col relative z-10 min-w-0">
 				<TopBar title={title} mode={mode} />
 				<main
-					class="flex-1 overflow-y-auto overflow-x-hidden p-8 perspective-1000 relative scrollbar-thin scrollbar-thumb-persona-accent scrollbar-track-black"
+					class="flex-1 overflow-y-auto overflow-x-hidden p-4 pb-24 md:p-8 perspective-1000 relative scrollbar-thin scrollbar-thumb-persona-accent scrollbar-track-black"
 				>
 					<!-- Background texture placeholder if needed -->
 					<!-- Noise Texture Overlay -->

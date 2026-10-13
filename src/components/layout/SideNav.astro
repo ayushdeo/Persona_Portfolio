@@ -1,44 +1,36 @@
 ---
-const links = [
-    {
-        name: "MISSION START",
-        href: `${import.meta.env.BASE_URL}/`,
-        color: "text-persona-red",
-        hover: "hover:text-persona-red",
-    },
-    {
-        name: "STATS",
-        href: `${import.meta.env.BASE_URL}/stats/`,
-        color: "text-persona-purple",
-        hover: "hover:text-persona-purple",
-    },
-    {
-        name: "ARSENAL",
-        href: `${import.meta.env.BASE_URL}/arsenal/`,
-        color: "text-persona-blue",
-        hover: "hover:text-persona-blue",
-    },
-    {
-        name: "CONFIDANTS",
-        href: `${import.meta.env.BASE_URL}/confidants/`,
-        color: "text-persona-yellow",
-        hover: "hover:text-persona-yellow",
-    },
-    {
-        name: "SAFE ROOM",
-        href: `${import.meta.env.BASE_URL}/safe-room/`,
-        color: "text-persona-red",
-        hover: "hover:text-persona-red",
-    },
+import { nav } from "../../data/profile";
+
+const colors = [
+    { color: "text-persona-red", hover: "hover:text-persona-red" },
+    { color: "text-persona-purple", hover: "hover:text-persona-purple" },
+    { color: "text-persona-blue", hover: "hover:text-persona-blue" },
+    { color: "text-persona-yellow", hover: "hover:text-persona-yellow" },
+    { color: "text-persona-red", hover: "hover:text-persona-red" },
 ];
-const currentPath = Astro.url.pathname;
+
+// Normalise trailing slashes so "/x" and "/x/" compare equal
+const norm = (p: string) => p.replace(/\/+$/, "") || "/";
+const currentPath = norm(Astro.url.pathname);
+const home = norm(nav[0].href);
+
+const links = nav.map((link, i) => {
+    const href = norm(link.href);
+    // Home only matches itself; other pages match their own subtree
+    const isActive =
+        href === home
+            ? currentPath === home
+            : currentPath === href || currentPath.startsWith(href + "/");
+    return { ...link, ...colors[i], isActive };
+});
 interface Props {
     mode?: string;
 }
 ---
 
 <nav
-    class="relative h-full w-24 md:w-64 bg-persona-black border-r-4 border-persona-white z-20 hidden md:flex flex-col justify-center transform -skew-x-3 origin-top-left ml-[-1rem]"
+    class="relative h-full w-24 md:w-72 bg-persona-black border-r-4 border-persona-white z-20 hidden md:flex flex-col justify-center transform -skew-x-3 origin-top-left ml-[-1rem]"
+    aria-label="Main"
 >
     <!-- Stripes -->
     <div
@@ -50,27 +42,23 @@ interface Props {
         class="flex flex-col space-y-6 pr-6 text-right font-display text-2xl tracking-wide mt-20"
     >
         {
-            links.map((link) => {
-                const isActive =
-                    currentPath === link.href ||
-                    (link.href !== "/" && currentPath.startsWith(link.href));
-                return (
-                    <li>
-                        <a
-                            href={link.href}
-                            class:list={[
-                                "block transition-all duration-300 transform hover:scale-110 hover:skew-x-12 hover:-translate-x-2",
-                                link.hover, // Dynamic hover color
-                                isActive
-                                    ? `${link.color} scale-110 -translate-x-4 skew-x-3 drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)]`
-                                    : "text-gray-500",
-                            ]}
-                        >
-                            {link.name}
-                        </a>
-                    </li>
-                );
-            })
+            links.map((link) => (
+                <li>
+                    <a
+                        href={link.href}
+                        aria-current={link.isActive ? "page" : undefined}
+                        class:list={[
+                            "block transition-all duration-300 transform hover:scale-110 hover:skew-x-12 hover:-translate-x-2",
+                            link.hover,
+                            link.isActive
+                                ? `${link.color} scale-105 -translate-x-1 skew-x-3 drop-shadow-[2px_2px_0px_rgba(255,255,255,0.8)]`
+                                : "text-gray-400",
+                        ]}
+                    >
+                        {link.name}
+                    </a>
+                </li>
+            ))
         }
     </ul>
 
@@ -81,4 +69,31 @@ interface Props {
             PHANTOM THIEVES
         </p>
     </div>
+</nav>
+
+<!-- Mobile: bottom command bar -->
+<nav
+    class="md:hidden fixed bottom-0 inset-x-0 z-[60] bg-persona-black border-t-4 border-persona-white"
+    aria-label="Main"
+>
+    <ul class="flex justify-between">
+        {
+            links.map((link) => (
+                <li class="flex-1">
+                    <a
+                        href={link.href}
+                        aria-current={link.isActive ? "page" : undefined}
+                        class:list={[
+                            "block text-center font-display text-[13px] leading-none py-3 px-1 tracking-wide",
+                            link.isActive
+                                ? "bg-persona-accent text-white"
+                                : "text-gray-300",
+                        ]}
+                    >
+                        {link.short}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
 </nav>
