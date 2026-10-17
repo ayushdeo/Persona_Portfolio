@@ -2,17 +2,36 @@
 import "../../styles/globals.css";
 import SideNav from "./SideNav.astro";
 import TopBar from "./TopBar.astro";
+import Intro from "../ui/Intro.astro";
 
 interface Props {
 	title: string;
 	mode?: "red" | "blue" | "yellow" | "purple";
+	intro?: boolean;
 }
 
-const { title, mode = "red" } = Astro.props;
+const { title, mode = "red", intro = false } = Astro.props;
 ---
 
 <html lang="en" class="overflow-hidden">
 	<head>
+		{
+			intro && (
+				<script is:inline>
+					// Decide before first paint whether the intro plays:
+					// first visit only, never with reduced motion, ?intro forces a replay.
+					(function () {
+						try {
+							var force = new URLSearchParams(location.search).has("intro");
+							var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+							if (force || (!calm && !localStorage.getItem("p5-intro-seen"))) {
+								document.documentElement.setAttribute("data-intro", "");
+							}
+						} catch (e) {}
+					})();
+				</script>
+			)
+		}
 		<!-- Google tag (gtag.js) -->
 		<script
 			async
@@ -51,6 +70,7 @@ const { title, mode = "red" } = Astro.props;
 	<body
 		class={`bg-persona-black text-persona-white font-ui selection:bg-persona-accent selection:text-white theme-${mode} overflow-hidden`}
 	>
+		{intro && <Intro />}
 		<div class="fixed inset-0 flex bg-persona-black overflow-hidden">
 			<SideNav mode={mode} />
 
